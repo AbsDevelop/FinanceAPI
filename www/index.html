@@ -19,95 +19,80 @@
 <body>
   <div class="container">
     <div class="row" id="cabecalho">
-      <div class="col-12">
-        <center><h4>Cadastro de Produto</h4></center>
+      <div class="col-sm">
+        <center><h3><i class="fas fa-search-dollar"></i> Casa de Câmbio</h3></center>
       </div>
     </div>
+    <br>
     <div class="row">
-      <div class="col-12" id="logotipo">
-        <img src='css/logo.png' id="logo">
+      <div class="col-sm">
+        <label for="">Digite o valor para a conversão:</label>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text b"><i class="fas fa-money-bill-wave"></i></span>
+          </div>
+          <input type="number" id="vlInicial" class="form-control" placeholder="0,00">
+        </div>
       </div>
     </div>
     <div class="form-group">
       <div class="row">
-        <div class="col-12">
-          <label for="">Digite o nome do produto:</label>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text b"><i class="fas fa-pencil-alt  a"></i></span>
-            </div>
-             <input type="text" id="nome" class="form-control" placeholder="Nome">
-          </div>
-        </div>
-      </div>         
-      <div class="row"> 
-        <div class="col-12">
-          <label for="">Digite o valor do produto:</label>
-          <div class="input-group mb-3">            
-            <div class="input-group-prepend">
-              <span class="input-group-text b"><i class="fas fa-dollar-sign a"></i></span>
-            </div>            
-            <input type="number" id="preco" class="form-control" placeholder="Preço">
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <label for="">Digite a quantidade do produto:</label>
-          <div class="input-group mb-3">            
-            <div class="input-group-prepend">
-              <span class="input-group-text b"><i class="fas fa-list-ol a"></i></span>
-            </div>            
-            <input type="number" id="quantidade" class="form-control" placeholder="Quantidade">
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <label for="">Selecione uma foto do produto:</label>
-          <input type="file" class="form-control-file" id="foto">
-        </div>
-      </div>
-      <br>
-      <div class="row">
-        <div class="col-12" id="categorias">
-          <label for="">Selecione a(s) categoria(s) do produto:</label><br>
-          <div class="form-check">
-            <input type="checkbox" id="infantil" name="infantil" value="infantil">
-            <label for="infantil" id="infantilC">Infantil</label>
-          
-            <input type="checkbox" id="adulto" name="adulto" value="adulto">
-            <label for="adulto" id="adultoC">Adulto</label>  
-          
-            <input type="checkbox" id="masculino" name="masculino" value="masculino">
-            <label for="masculino">Masculino</label> 
-          </div>
-          <div class="form-check">
-            <input type="checkbox" id="feminino" name="feminino" value="feminino">
-            <label for="feminino" id="femininoC">Feminino</label> 
-          
-            <input type="checkbox" id="calca" name="calca" value="calca">
-            <label for="calca" id="calcaC" >Calça</label>   
-          
-            <input type="checkbox" id="camisa" name="camisa" value="camisa">
-            <label for="camisa">Camisa</label>
-          </div>
-          <div class="form-check">
-            <input type="checkbox" id="shorts" name="shorts" value="shorts">
-            <label for="shorts" id="shortsC">Shorts</label>
-          
-            <input type="checkbox" id="conjuntos" name="conjuntos" value="conjuntos">
-            <label for="conjuntos" id="conjuntosC">Conjuntos</label>  
-          
-            <input type="checkbox" id="acessorios" name="acessorios" value="acessorios">
-            <label for="acessorios">Acessórios</label>  
+        <div class="col-sm">
+          <label for="">Escolha a Moeda para a conversão:</label>
+          <div class="form-group col-md-4">
+            <select id="Moeda" class="form-control">
+               <option value="usd">Dólar (USD)</option>
+               <option value="eur">Euro (EUR) </option>
+               <option value="gbp">Libra (GBP)</option>
+               <option value="ars">Peso (ARS)</option>
+               <option value="cad">Dólar Canadense (CAD)</option>
+               <option value="aud">Dólar Australiano (AUD)</option>
+               <option value="jpy">Iene Japonês (JPY)</option>
+               <option value="cny">Renminbi Chinês (CNY)</option>
+               <option value="btc">Bitcoin (BTC)</option>
+            </select>
           </div>  
         </div>
+      </div>    
+    </div>  
+    <div class="row"> 
+      <div class="col-sm">
+        <button type="button" class="btn btn-success btn-lg btn-block" id="converter">Converter</button>
+      </div>  
+    </div>  
+    <hr>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm">
+          <div class="input-group mb-3">
+            <input type="number" id="vlCopiado" class="form-control a" readonly>
+          </div>
+        </div>
       </div>
       <div class="row">
-        <div class="col-12">
-          <button class="btn btn-info btn-block" id="cadastrar">Cadastrar Produto</button>
+        <div class="col-sm">
+          <center><label for="" class="b">Conversão para Moeda Comercial <i class="fas fa-chevron-circle-down"></i></label></center>
+            <div class="input-group mb-3">
+              <input type="number" id="vlResultado" class="form-control a" readonly>
+            </div>
         </div>
+      </div>
+    </div>    
+    <div class="row">
+      <div class="col-sm">
+        <center><label for="" class="b">Veja mais informações<br><i class="fas fa-chevron-down"></i></label></center>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <h6 class="b">
+          <i class="fas fa-share"></i> Como usar o conversor de moedas?<p class="c">
+            É bem simples: basta colocar o valor que deseja converter, em reais,e a moeda de destino. Em segundos, você terá a conversão feita. Vale destacar que o cálculo tem caráter apenas informativo e não substitui as disposições da norma cambial brasileira para casos específicos de conversão.</p>
+          <i class="fas fa-share"></i> Vai viajar para fora do país?<p class="c">
+              Para quem vai viajar ou realizar transações financeiras em outras moedas, a dica é verificar a cotação a cada dia. Isso porque os valores apresentam variações, o que pode ser influenciado pelo mercado e até decisões políticas.</p>
+          <i class="fas fa-share"></i> Por que converter moedas online?<p class="c">
+              Atualmente, a conversão de moedas pode ser feita de forma online e é um recurso que cabe na palma da sua mão. O câmbio pode ser feito pelo celular e pelo computador, o que facilita e muito o acesso a moedas estrangeiras.</p>
+        </h6>
       </div>
     </div>
   </div>

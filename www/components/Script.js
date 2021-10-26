@@ -1,85 +1,75 @@
 // This is a JavaScript file
+var vlInicial;
+var vlResultado;
 
-//Ação de Cadastro
-$(document).on("click", "#cadastrar", function(){
-  let parametros = {
-    "Nome": $('#nome').val(),
-    "Curso": $('#curso').val()
-  };
-
-  $.ajax({
-    type: "post", //Como vou enviar
-    url: "https://www.jussimarleal.com.br/exemplo_api/pessoa", //Para onde vou enviar
-    data: parametros,
-    success: function(data) //Execução bem sucedida
-    {
-      alert(data);
-      $("#nome").val("");
-      $("#curso").val("");
+$(document).on("click","#converter",function(){
+      $.ajax({
+        type:"get",
+        dataType:"json",
+        url:"https://api.hgbrasil.com/finance/quotations?key=e8c3e0cd",
+    success:function(data){
+    var moeda = $('#Moeda').val();
+    var conteudo;
+  
+    if(moeda == usd){
+      document.getElementById("vlInicial").value = vlInicial;
+      mUsd = data.results.currencies.USD.buy;
+      vlResultado = vlInicial / mUsd;
+      $("#vlCopiado").html("R$"+vlInicial);  
+      $("#vlResultado").html("US$"+vlResultado);  
+    }else if(moeda == eur){
+      vlInicial = document.getElementById("vlInicial").value;
+      mEur = data.results.currencies.EUR.buy;
+      vlResultado = vlInicial / mEur;
+      $("#vlCopiado").html("R$"+vlInicial);  
+      $("#vlResultado").html(vlResultado+" €");
+    }else if(moeda == gpb){
+      vlInicial = document.getElementById("vlInicial").value;
+      mGpb = data.results.currencies.GPB.buy;
+      vlResultado = vlInicial / mGpb;
+      $("#vlCopiado").html("R$"+vlInicial);
+      $("#vlResultado").html("£"+vlResultado);
+    }else if(moeda == ars){
+      vlInicial = document.getElementById("vlInicial").value;
+      mArs = data.results.currencies.ARS.buy;
+      vlResultado = vlInicial / mArs;
+      $("#vlCopiado").html("R$"+vlInicial);
+      $("#vlResultado").html("AR$"+vlResultado);  
+    }else if(moeda == cad){
+      vlInicial = document.getElementById("vlInicial").value;
+      mCad = data.results.currencies.CAD.buy;
+      vlResultado = vlInicial / mCad;
+      $("#vlCopiado").html("R$"+vlInicial);
+      $("#vlResultado").html("C$"+vlResultado);
+    }else if(moeda == aud){
+      vlInicial = document.getElementById("vlInicial").value;
+      mAud = data.results.currencies.AUD.buy;
+      vlResultado = vlInicial / mAud;
+      $("#vlCopiado").html("R$"+vlInicial);
+      $("#vlResultado").html("AU$"+vlResultado);
+    }else if(moeda == jpy){
+      vlInicial = document.getElementById("vlInicial").value;
+      mJpy = data.results.currencies.JPY.buy;
+      vlResultado = vlInicial / mJpy;
+      $("#vlCopiado").html("R$"+vlInicial);
+      $("#vlResultado").html("¥"+vlResultado);  
+    }else if(moeda == cny){
+      vlInicial = document.getElementById("vlInicial").value;
+      mCny = data.results.currencies.CNY.buy;
+      vlResultado = vlInicial / mCny;
+      $("#vlCopiado").html("R$"+vlInicial);
+      $("#vlResultado").html("CN¥"+vlResultado);
+    }else if(moeda == btc){
+      vlInicial = document.getElementById("vlInicial").value;
+      mBtc = data.results.currencies.BTC.buy;
+      vlResultado = vlInicial / mBtc;
+      $("#vlCopiado").html("R$"+vlInicial);
+      $("#vlResultado").html("₿"+vlResultado);
+    }
     },
-    error: function(data) //Execução mal sucedida
-    {
-      alert("Erro ao cadastrar suas informações!");
+    error: function(){
+      alert("Error");
     }
   })
 });
 
-//Ação de Busca
-$(document).on("click", "#buscar", function(){
-  $.ajax({
-    type: "get", //Como vou enviar
-    dataType: "json",
-    url: "https://www.jussimarleal.com.br/exemplo_api/pessoa/"+$("#id").val(), //Para onde vou enviar
-    success: function(data) //Execução bem sucedida
-    {
-      $("#nome").val(data.nome);
-      $("#curso").val(data.curso);
-    },
-    error: function(data) //Execução mal sucedida
-    {
-      alert("Erro ao encontrar seu ID!");
-    }
-  })
-});
-
-//Ação de Alteração
-$(document).on("click", "#alterar", function(){
-  let parametros = {
-    "Nome": $('#nome').val(),
-    "Curso": $('#curso').val()
-  };
-
-  $.ajax({
-    type: "put", //Como vou enviar
-    url: "https://www.jussimarleal.com.br/exemplo_api/pessoa/"+$("#id").val(), //Para onde vou enviar
-    data: parametros,
-    success: function(data) //Execução bem sucedida
-    {
-      alert(data);
-      $("#nome").val("");
-      $("#curso").val("");
-    },
-    error: function(data) //Execução mal sucedida
-    {
-      alert("Erro ao alterar as informações!");
-    }
-  })
-});
-
-//Ação de Exclusão
-$(document).on("click", "#deletar", function(){
-  $.ajax({
-    type: "delete", //Como vou enviar
-    url: "https://www.jussimarleal.com.br/exemplo_api/pessoa/"+$("#id").val(), //Para onde vou enviar
-    success: function(data) //Execução bem sucedida
-    {
-      alert(data);
-      $("#nome").val("");
-      $("#curso").val("");
-    },
-    error: function(data) //Execução mal sucedida
-    {
-      alert("Erro ao excluir as informações!");
-    }
-  })
-});

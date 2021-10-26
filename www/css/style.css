@@ -5,54 +5,21 @@ body{
 }
 
 #cabecalho{
-  background-color: #32A2B8;
+  background-color: green;
   color: white;
-  border-bottom: solid white 1px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-#logotipo{
-  text-align: center;
-}
-
-#logo{
-  text-align: center;
-  width: 300px;
-}
-
-#cadastrar{
-  margin-top: 8px;
-}
-
 .a{
-  color: #32A2B8;
+  border-radius: 20px;
 }
 
 .b{
-  background-color: white;
+  color: green;
+  font-size: large;
 }
 
-#infantilC{
-  margin-right: 41px;
-}
-
-#adultoC{
-  margin-right: 35px;
-}
-
-#femininoC{
-  margin-right: 24px;
-}
-
-#calcaC{
-  margin-right: 42px;
-}
-
-#shortsC{
-  margin-right: 45px;
-}
-
-#conjuntosC{
-  margin-right: 8px;
+.c{
+ color: black;
 }
